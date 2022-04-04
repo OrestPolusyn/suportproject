@@ -1,0 +1,57 @@
+.contact {
+  display: grid;
+  grid-template-columns: 350px 1fr 350px;
+
+  h2,
+  h3 {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__heart {
+    align-self: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 290px;
+  }
+
+  &__img {
+    position: absolute;
+    width: 100%;
+    max-width: 332px;
+
+    &--top {
+      z-index: 2;
+    }
+
+    &--middle {
+      z-index: 1;
+      transform: translate(10px, 20px);
+    }
+
+    &--bottom {
+      z-index: 0;
+      transform: translate(20px, 40px);
+    }
+  }
+
+  .phone {
+    display: block;
+    margin-bottom: 40px;
+    padding-top: 6px;
+  }
+
+  address {
+    margin-bottom: 57px;
+  }
+
+  .phone,
+  address {
+    padding-left: 38px;
+    font-size: var(--size-l);
+  }
+}

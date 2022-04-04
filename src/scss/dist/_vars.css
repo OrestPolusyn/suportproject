@@ -1,0 +1,21 @@
+:root {
+  --font-family: "Montserrat";
+  --content-width: 1110px;
+  --container-offset: 20px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --container-feed-width: calc(var(--content-feed-width) + (var(--container-offset) * 2));
+  --color-white: #fff;
+  --color-black: #001d3d;
+  --color-cta: #d00000;
+  --color-gray: #ebebeb;
+  --color-yellow: #ffd500;
+  --color-blue: #00509d;
+  --shadow: 3px 6px 12px rgba(0, 29, 61, 0.2);
+  --btn-color: linear-gradient(91.77deg, #D00000 1.56%, #D00000 1.57%, rgba(208, 0, 0, 0.79) 100%, rgba(208, 0, 0, 0.79) 100%, rgba(208, 0, 0, 0.79) 100%);
+  --radius-main: 5px;
+  --radius-btn: 15px;
+  --radius-round: 50%;
+  --size-l: 16px;
+  --size: 14px;
+  --size-s: 12px;
+}

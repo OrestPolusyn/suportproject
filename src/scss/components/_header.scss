@@ -1,0 +1,75 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: linear-gradient(180deg, rgba(0, 80, 157, 0.08) 0%, rgba(0, 80, 157, 0) 100%);
+
+  nav {
+    @include flex-all-sb;
+
+    margin: 0 auto;
+    padding: 20px 0;
+    width: 100%;
+    max-width: 920px;
+
+    ul {
+      @include flex-v-center;
+    }
+
+    li {
+      display: inline;
+
+      &:not(:last-child) {
+        margin-right: 19px;
+      }
+    }
+
+    a:not(.header__phone) {
+      display: inline-block;
+      border: 1px solid transparent;
+      border-radius: var(--radius-main);
+      padding: 4px 9px;
+      font-size: var(--size);
+      letter-spacing: 0.36px;
+      color: var(--color-black);
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
+
+      &:hover {
+        border-color: var(--color-blue);
+        font-weight: 700;
+        color: var(--color-blue);
+      }
+    }
+  }
+
+  &__phone {
+    font-weight: 700;
+    font-size: var(--size-l);
+  }
+
+  .lang {
+    position: relative;
+
+    ul {
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    span {
+      display: block;
+      border: 1px solid var(--color-blue);
+      border-radius: var(--radius-main);
+      padding: 4px 9px;
+      transform: translateX(-20px);
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.btn {
+  display: block;
+  border-radius: var(--radius-btn);
+  padding: 9px 20px;
+  width: 100%;
+  max-width: 230px;
+  box-shadow: var(--shadow);
+  font-weight: 700;
+  font-size: var(--size-l);
+  text-align: center;
+  color: var(--color-white);
+  background: var(--btn-color);
+}

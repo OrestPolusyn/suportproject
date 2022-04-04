@@ -1,0 +1,69 @@
+.programm {
+  h2 {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  ul {
+    counter-reset: list;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 920px;
+
+    >div {
+      width: 100%;
+      max-width: 445px;
+    }
+
+    li {
+      display: grid;
+      grid-template-columns: 445px 475px;
+      overflow: hidden;
+      border-radius: var(--radius-main);
+      background-color: rgba(235, 235, 235, 0.3);
+
+      &:not(:last-child) {
+        margin-bottom: 40px;
+      }
+    }
+
+    div {
+      &:not(:first-child) {
+        padding: 55px 20px 55px 30px;
+      }
+
+      h3 {
+        counter-increment: list;
+        position: relative;
+        margin-bottom: 45px;
+        padding-right: 40px;
+        padding-left: 95px;
+
+        &::before {
+          @include flex-v-center;
+
+          content: counter(list, decimal-leading-zero);
+          position: absolute;
+          left: 0;
+          justify-content: flex-end;
+          border: 2px solid var(--color-black);
+          border-radius: var(--radius-main);
+          padding-right: 4px;
+          width: 100%;
+          height: 36px;
+          max-width: 65px;
+          font-size: 24px;
+          background-color: var(--color-gray);
+        }
+      }
+
+      p {
+        margin-bottom: 20px;
+
+        &:last-of-type {
+          margin-bottom: 45px;
+        }
+      }
+    }
+  }
+}

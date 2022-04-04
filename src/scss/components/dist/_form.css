@@ -1,0 +1,17 @@
+.form__input {
+  margin-bottom: 30px;
+  border-radius: var(--radius-main);
+  padding: 15px 30px;
+  width: 100%;
+  background-color: var(--color-gray);
+}
+.form__input::placeholder {
+  color: rgba(0, 29, 61, 0.5);
+}
+.form__input:focus::placeholder {
+  opacity: 0;
+}
+.form__message {
+  min-height: 155px;
+  resize: none;
+}
