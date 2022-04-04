@@ -540,11 +540,68 @@ p {
   margin-bottom: 45px;
 }
 
+.form__input {
+  margin-bottom: 30px;
+  border-radius: var(--radius-main);
+  padding: 15px 30px;
+  width: 100%;
+  background-color: var(--color-gray);
+}
+.form__input::placeholder {
+  color: rgba(0, 29, 61, 0.5);
+}
+.form__input:focus::placeholder {
+  opacity: 0;
+}
+.form__message {
+  min-height: 155px;
+  resize: none;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 350px 1fr 350px;
+}
+.contact h2,
+.contact h3 {
+  margin-bottom: 50px;
+  text-align: center;
+}
+.contact__content {
+  position: relative;
+}
 .contact__heart {
+  align-self: center;
+  margin: 0 auto;
   width: 100%;
   max-width: 290px;
 }
 .contact__img {
+  position: absolute;
   width: 100%;
-  max-width: 320px;
+  max-width: 332px;
+}
+.contact__img--top {
+  z-index: 2;
+}
+.contact__img--middle {
+  z-index: 1;
+  transform: translate(10px, 20px);
+}
+.contact__img--bottom {
+  z-index: 0;
+  transform: translate(20px, 40px);
+}
+.contact .phone {
+  display: block;
+  margin-bottom: 40px;
+  padding-top: 6px;
+}
+.contact address {
+  margin-bottom: 57px;
+}
+.contact .phone,
+.contact address {
+  padding-left: 38px;
+  font-size: var(--size-l);
 }

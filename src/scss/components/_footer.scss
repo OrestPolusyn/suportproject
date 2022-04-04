@@ -1,0 +1,34 @@
+.footer {
+  padding: 55px 0;
+  color: var(--color-white);
+  background-color: var(--color-black);
+
+  &__inner {
+    @include flex-all-sb;
+  }
+
+  .copyright {
+    align-self: flex-end;
+  }
+
+  ul {
+    li {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      a {
+        display: inline-block;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  .phone {
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+}

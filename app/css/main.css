@@ -718,4 +718,38 @@ p {
   padding-left: 38px;
   font-size: var(--size-l);
 }
+
+.footer {
+  padding: 55px 0;
+  color: var(--color-white);
+  background-color: var(--color-black);
+}
+.footer__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.footer .copyright {
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+}
+.footer ul li:not(:last-child) {
+  margin-bottom: 24px;
+}
+.footer ul li a {
+  display: inline-block;
+}
+.footer ul li a::first-letter {
+  text-transform: uppercase;
+}
+.footer .phone {
+  display: inline-block;
+  margin-bottom: 24px;
+}
 /*# sourceMappingURL=main.css.map */
