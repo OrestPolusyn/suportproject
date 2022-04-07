@@ -1,24 +1,37 @@
 .together {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 30px;
+
   h2 {
-    display: contents;
-    float: right;
     margin-bottom: 53px;
     padding-top: 2px;
     padding-left: 8px;
+
+    @include for-width(-tablet) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &__img {
-    float: left;
     overflow: hidden;
     margin-right: 30px;
     border-radius: var(--radius-main);
     width: 100%;
     max-width: 540px;
+
+    @include for-width(-tablet) {
+      margin: 0 auto 50px;
+      padding-top: 60px;
+    }
   }
 
   &__content {
-    padding-top: 54px;
-
     p {
       line-height: 1.1;
 
@@ -26,5 +39,15 @@
         margin-bottom: 18px;
       }
     }
+
+    @include for-width(-tablet) {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 640px;
+    }
+  }
+
+  @include for-width(-tablet) {
+    display: block;
   }
 }

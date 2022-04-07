@@ -292,8 +292,9 @@ p {
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 1;
   width: 100%;
-  background-color: linear-gradient(180deg, rgba(0, 80, 157, 0.08) 0%, rgba(0, 80, 157, 0) 100%);
+  background-color: var(--color-white);
 }
 .header nav {
   display: flex;
@@ -381,6 +382,12 @@ p {
   font-weight: inherit;
   color: var(--color-blue);
 }
+@media (max-width: calc(calc($pixels / $context)em - calc($pixels / $context)em)) {
+  .hero__content .title span {
+    display: block;
+    text-align: right;
+  }
+}
 .hero__content p {
   margin-bottom: 45px;
   width: 100%;
@@ -391,29 +398,56 @@ p {
   color: var(--color-black);
 }
 
+.together {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 30px;
+}
 .together h2 {
-  display: contents;
-  float: right;
   margin-bottom: 53px;
   padding-top: 2px;
   padding-left: 8px;
 }
+@media (max-width: calc(calc($pixels / $context)em - calc($pixels / $context)em)) {
+  .together h2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
 .together__img {
-  float: left;
   overflow: hidden;
   margin-right: 30px;
   border-radius: var(--radius-main);
   width: 100%;
   max-width: 540px;
 }
-.together__content {
-  padding-top: 54px;
+@media (max-width: calc(calc($pixels / $context)em - calc($pixels / $context)em)) {
+  .together__img {
+    margin: 0 auto 50px;
+    padding-top: 60px;
+  }
 }
 .together__content p {
   line-height: 1.1;
 }
 .together__content p:not(:last-child) {
   margin-bottom: 18px;
+}
+@media (max-width: calc(calc($pixels / $context)em - calc($pixels / $context)em)) {
+  .together__content {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 640px;
+  }
+}
+@media (max-width: calc(calc($pixels / $context)em - calc($pixels / $context)em)) {
+  .together {
+    display: block;
+  }
 }
 
 .help {
@@ -426,24 +460,53 @@ p {
 }
 .help__list {
   display: grid;
+  grid-auto-rows: 218px;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 218px);
   margin: 0 auto;
   width: 100%;
   max-width: 920px;
   gap: 40px 30px;
 }
+@media (max-width: calc(calc($pixels / $context)em - calc($pixels / $context)em)) {
+  .help__list {
+    grid-template-columns: 1fr;
+  }
+}
 .help__item {
+  position: relative;
   border-radius: var(--radius-main);
   padding-top: 67px;
-  padding-left: 32px;
   padding-right: 27px;
+  padding-left: 32px;
   box-shadow: 0px 4px 10px rgba(0, 29, 61, 0.1);
   background-color: rgba(0, 80, 157, 0.1);
+}
+.help__item::before {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 40px;
+  width: 60px;
+  height: 60px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .help__item h3 {
   margin-bottom: 32px;
   padding-left: 70px;
+}
+.help__item--volunteering::before {
+  background-image: url("../img/help/volunteering.png");
+}
+.help__item--cash::before {
+  background-image: url("../img/help/cash.png");
+}
+.help__item--resources::before {
+  background-image: url("../img/help/resources.png");
+}
+.help__item--bitcoin::before {
+  background-image: url("../img/help/bitcoin.png");
 }
 
 .news {
@@ -451,12 +514,13 @@ p {
   background-color: rgba(235, 235, 235, 0.3);
 }
 .news h2 {
-  text-align: center;
   margin-bottom: 50px;
+  text-align: center;
 }
 .news ul {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 255px);
+  justify-content: center;
+  grid-template-columns: repeat(4, 255px);
   grid-template-rows: 320px;
   gap: 0 30px;
 }
@@ -490,16 +554,21 @@ p {
 .programm ul {
   counter-reset: list;
   margin: 0 auto;
+  padding: 0 30px;
   width: 100%;
-  max-width: 920px;
+  max-width: 980px;
 }
 .programm ul > div {
   width: 100%;
   max-width: 445px;
 }
+@media (max-width: calc(calc($pixels / $context)em - calc($pixels / $context)em)) {
+  .programm ul > div {
+    max-width: 100%;
+  }
+}
 .programm ul li {
-  display: grid;
-  grid-template-columns: 445px 475px;
+  display: flex;
   overflow: hidden;
   border-radius: var(--radius-main);
   background-color: rgba(235, 235, 235, 0.3);
@@ -507,8 +576,21 @@ p {
 .programm ul li:not(:last-child) {
   margin-bottom: 40px;
 }
+@media (max-width: calc(calc($pixels / $context)em - calc($pixels / $context)em)) {
+  .programm ul li {
+    display: block;
+  }
+}
+.programm ul div {
+  width: 100%;
+  max-width: 445px;
+}
 .programm ul div:not(:first-child) {
   padding: 55px 20px 55px 30px;
+}
+.programm ul div img {
+  height: 100%;
+  object-position: right;
 }
 .programm ul div h3 {
   counter-increment: list;
@@ -538,6 +620,16 @@ p {
 }
 .programm ul div p:last-of-type {
   margin-bottom: 45px;
+}
+@media (max-width: calc(calc($pixels / $context)em - calc($pixels / $context)em)) {
+  .programm ul div {
+    max-width: 100%;
+  }
+}
+@media (max-width: calc(calc($pixels / $context)em - calc($pixels / $context)em)) {
+  .programm ul {
+    max-width: 560px;
+  }
 }
 
 .form__input {
@@ -604,4 +696,31 @@ p {
 .contact address {
   padding-left: 38px;
   font-size: var(--size-l);
+}
+
+.footer {
+  padding: 55px 0;
+  color: var(--color-white);
+  background-color: var(--color-black);
+}
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer .copyright {
+  align-self: flex-end;
+}
+.footer ul li:not(:last-child) {
+  margin-bottom: 24px;
+}
+.footer ul li a {
+  display: inline-block;
+}
+.footer ul li a::first-letter {
+  text-transform: uppercase;
+}
+.footer .phone {
+  display: inline-block;
+  margin-bottom: 24px;
 }

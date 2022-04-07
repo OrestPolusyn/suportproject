@@ -24,6 +24,11 @@
         display: inline-block;
         font-weight: inherit;
         color: var(--color-blue);
+
+        @include for-width(-mobile-l) {
+          display: block;
+          text-align: right;
+        }
       }
     }
 

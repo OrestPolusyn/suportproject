@@ -1,7 +1,7 @@
 :root {
   --font-family: "Montserrat";
   --content-width: 1110px;
-  --container-offset: 20px;
+  --container-offset: 30px;
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
   --container-feed-width: calc(var(--content-feed-width) + (var(--container-offset) * 2));
   --color-white: #fff;

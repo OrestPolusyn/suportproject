@@ -1,17 +1,28 @@
 .footer {
-  padding: 55px 0;
+  padding: 62px 0;
   color: var(--color-white);
   background-color: var(--color-black);
 
   &__inner {
     @include flex-all-sb;
+
+    @include for-width(-mobile-l) {
+      flex-direction: column;
+    }
   }
 
-  .copyright {
-    align-self: flex-end;
+  &__contact {
+    align-self: flex-start;
+    font-size: 16px;
+
+    ul {
+      margin-right: 68px;
+    }
   }
 
   ul {
+    margin-right: 70px;
+
     li {
       &:not(:last-child) {
         margin-bottom: 24px;
@@ -27,8 +38,29 @@
     }
   }
 
+  .copyright {
+    align-self: flex-end;
+
+    @include for-width(-mobile-l) {
+      order: 3;
+    }
+  }
+
   .phone {
     display: inline-block;
     margin-bottom: 24px;
+
+    &::before {
+      left: -13px;
+      background-image: url("../img/icon/phone-white.png");
+    }
+  }
+
+  address {
+    &::before {
+      left: -40px;
+      top: -5px;
+      background-image: url("../img/icon/map-white.png");
+    }
   }
 }

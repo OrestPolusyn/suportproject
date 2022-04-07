@@ -5,8 +5,12 @@
 /*!*******************************!*\
   !*** ./src/js/_components.js ***!
   \*******************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_headerScroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/_headerScroll */ "./src/js/components/_headerScroll.js");
+/* harmony import */ var _components_headerScroll__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_components_headerScroll__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
@@ -20,41 +24,12 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions/burger */ "./src/js/functions/burger.js");
+/* harmony import */ var _functions_burger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_functions_burger__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var graph_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! graph-modal */ "./node_modules/graph-modal/src/graph-modal.js");
-// Определение операционной системы на мобильных
-// import { mobileCheck } from "./functions/mobile-check";
-// console.log(mobileCheck())
-// Определение ширины экрана
-// import { isMobile, isTablet, isDesktop } from './functions/check-viewport';
-// if (isDesktop()) {
-//   console.log('...')
-// }
-// Троттлинг функции (для ресайза, ввода в инпут, скролла и т.д.)
-// import { throttle } from './functions/throttle';
-// let yourFunc = () => { console.log('throttle') };
-// let func = throttle(yourFunc);
-// window.addEventListener('resize', func);
-// Фикс фулскрин-блоков
-// import './functions/fix-fullheight';
-// Реализация бургер-меню
- // Реализация остановки скролла (не забудьте вызвать функцию)
-// import { disableScroll } from './functions/disable-scroll';
-// Реализация включения скролла (не забудьте вызвать функцию)
-// import { enableScroll } from './functions/disable-scroll';
-// Реализация модального окна
+ // Реализация модального окна
 
 
-var modal = new graph_modal__WEBPACK_IMPORTED_MODULE_1__["default"](); // Реализация табов
-// import GraphTabs from 'graph-tabs';
-// const tabs = new GraphTabs('tab');
-// Получение высоты шапки сайта (не забудьте вызвать функцию)
-// import { getHeaderHeight } from './functions/header-height';
-// Подключение плагина кастом-скролла
-// import 'simplebar';
-// Подключение параллакса блоков при скролле
-// import Rellax from 'rellax';
-// const rellax = new Rellax('.rellax');
-// Подключение плавной прокрутки к якорям
+var modal = new graph_modal__WEBPACK_IMPORTED_MODULE_1__["default"](); // Подключение плавной прокрутки к якорям
 // import SmoothScroll from 'smooth-scroll';
 // const scroll = new SmoothScroll('a[href*="#"]');
 // Подключение событий свайпа на мобильных
@@ -64,12 +39,6 @@ var modal = new graph_modal__WEBPACK_IMPORTED_MODULE_1__["default"](); // Реа
 //   console.log(e.detail);
 //   console.log(e.detail.dir);
 // });
-// import { validateForms } from './functions/validate-forms';
-// const rules1 = [...];
-// const afterForm = () => {
-//   console.log('Произошла отправка, тут можно писать любые действия');
-// };
-// validateForms('.form-1', rules1, afterForm);
 
 /***/ }),
 
@@ -93,18 +62,68 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/js/components/_headerScroll.js":
+/*!********************************************!*\
+  !*** ./src/js/components/_headerScroll.js ***!
+  \********************************************/
+/***/ (() => {
+
+(function () {
+  var doc = document.documentElement;
+  var w = window;
+  var prevScroll = w.scrollY || doc.scrollTop;
+  var curScroll;
+  var direction = 0;
+  var prevDirection = 0;
+  var header = document.querySelector('.header');
+
+  var checkScroll = function checkScroll() {
+    curScroll = w.scrollY || doc.scrollTop;
+
+    if (curScroll > prevScroll) {
+      //scrolled up
+      direction = 2;
+    } else if (curScroll < prevScroll) {
+      //scrolled down
+      direction = 1;
+    }
+
+    if (direction !== prevDirection) {
+      toggleHeader(direction, curScroll);
+    }
+
+    prevScroll = curScroll;
+  };
+
+  var toggleHeader = function toggleHeader(direction, curScroll) {
+    if (direction === 2 && curScroll > 52) {
+      //replace 52 with the height of your header in px
+      header.classList.add('header--scroll');
+      prevDirection = direction;
+    } else if (direction === 1) {
+      header.classList.remove('header--scroll');
+      prevDirection = direction;
+    }
+  };
+
+  window.addEventListener('scroll', checkScroll);
+})();
+
+window.addEventListener('scroll', function () {
+  if (window.pageYOffset > 200) {
+    document.querySelector('.header').style.backgroundColor = "#fff";
+  } else if (window.pageYOffset === 0) {
+    document.querySelector('.header').style.backgroundColor = "transparent";
+  }
+});
+
+/***/ }),
+
 /***/ "./src/js/functions/burger.js":
 /*!************************************!*\
   !*** ./src/js/functions/burger.js ***!
   \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _functions_disable_scroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/disable-scroll */ "./src/js/functions/disable-scroll.js");
-/* harmony import */ var _functions_enable_scroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions/enable-scroll */ "./src/js/functions/enable-scroll.js");
-
-
+/***/ (() => {
 
 (function () {
   var _document, _document2, _document3, _document4;
@@ -115,101 +134,31 @@ __webpack_require__.r(__webpack_exports__);
   var overlay = (_document4 = document) === null || _document4 === void 0 ? void 0 : _document4.querySelector('[data-menu-overlay]');
   burger === null || burger === void 0 ? void 0 : burger.addEventListener('click', function (e) {
     burger === null || burger === void 0 ? void 0 : burger.classList.toggle('burger-active');
-    menu === null || menu === void 0 ? void 0 : menu.classList.toggle('menu-active');
+    menu === null || menu === void 0 ? void 0 : menu.classList.toggle('menu--active');
 
-    if (menu !== null && menu !== void 0 && menu.classList.contains('menu-active')) {
+    if (menu !== null && menu !== void 0 && menu.classList.contains('menu--active')) {
       burger === null || burger === void 0 ? void 0 : burger.setAttribute('aria-expanded', 'true');
       burger === null || burger === void 0 ? void 0 : burger.setAttribute('aria-label', 'Close menu');
-      (0,_functions_disable_scroll__WEBPACK_IMPORTED_MODULE_0__.disableScroll)();
     } else {
       burger === null || burger === void 0 ? void 0 : burger.setAttribute('aria-expanded', 'false');
       burger === null || burger === void 0 ? void 0 : burger.setAttribute('aria-label', 'Open menu');
-      (0,_functions_enable_scroll__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
     }
   });
   overlay === null || overlay === void 0 ? void 0 : overlay.addEventListener('click', function () {
     burger === null || burger === void 0 ? void 0 : burger.setAttribute('aria-expanded', 'false');
     burger === null || burger === void 0 ? void 0 : burger.setAttribute('aria-label', 'Open menu');
     burger.classList.remove('burger-active');
-    menu.classList.remove('menu-active');
-    (0,_functions_enable_scroll__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
+    menu.classList.remove('menu--active');
   });
   menuItems === null || menuItems === void 0 ? void 0 : menuItems.forEach(function (el) {
     el.addEventListener('click', function () {
       burger === null || burger === void 0 ? void 0 : burger.setAttribute('aria-expanded', 'false');
       burger === null || burger === void 0 ? void 0 : burger.setAttribute('aria-label', 'Open menu');
       burger.classList.remove('burger-active');
-      menu.classList.remove('menu-active');
-      (0,_functions_enable_scroll__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
+      menu.classList.remove('menu--active');
     });
   });
 })();
-
-/***/ }),
-
-/***/ "./src/js/functions/disable-scroll.js":
-/*!********************************************!*\
-  !*** ./src/js/functions/disable-scroll.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "disableScroll": () => (/* binding */ disableScroll)
-/* harmony export */ });
-/* harmony import */ var _vars__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_vars */ "./src/js/_vars.js");
-
-var disableScroll = function disableScroll() {
-  var _document;
-
-  var fixBlocks = (_document = document) === null || _document === void 0 ? void 0 : _document.querySelectorAll('.fixed-block');
-  var pagePosition = window.scrollY;
-  var paddingOffset = "".concat(window.innerWidth - _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.offsetWidth, "px");
-  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].htmlEl.style.scrollBehavior = 'none';
-  fixBlocks.forEach(function (el) {
-    el.style.paddingRight = paddingOffset;
-  });
-  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.style.paddingRight = paddingOffset;
-  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.classList.add('dis-scroll');
-  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.dataset.position = pagePosition;
-  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.style.top = "-".concat(pagePosition, "px");
-};
-
-/***/ }),
-
-/***/ "./src/js/functions/enable-scroll.js":
-/*!*******************************************!*\
-  !*** ./src/js/functions/enable-scroll.js ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "enableScroll": () => (/* binding */ enableScroll)
-/* harmony export */ });
-/* harmony import */ var _vars__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_vars */ "./src/js/_vars.js");
-
-var enableScroll = function enableScroll() {
-  var _document;
-
-  var fixBlocks = (_document = document) === null || _document === void 0 ? void 0 : _document.querySelectorAll('.fixed-block');
-  var body = document.body;
-  var pagePosition = parseInt(_vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.dataset.position, 10);
-  fixBlocks.forEach(function (el) {
-    el.style.paddingRight = '0px';
-  });
-  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.style.paddingRight = '0px';
-  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.style.top = 'auto';
-  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.classList.remove('dis-scroll');
-  window.scroll({
-    top: pagePosition,
-    left: 0
-  });
-  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.removeAttribute('data-position');
-  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].htmlEl.style.scrollBehavior = 'smooth';
-};
 
 /***/ }),
 
@@ -491,7 +440,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _vars__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_vars */ "./src/js/_vars.js");
 /* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_functions */ "./src/js/_functions.js");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_components */ "./src/js/_components.js");
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components__WEBPACK_IMPORTED_MODULE_2__);
 
 
 

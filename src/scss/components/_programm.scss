@@ -1,42 +1,62 @@
 .programm {
   h2 {
-    margin-bottom: 50px;
     text-align: center;
   }
 
   ul {
     counter-reset: list;
     margin: 0 auto;
+    padding: 0 30px;
     width: 100%;
-    max-width: 920px;
+    max-width: 980px;
 
     >div {
       width: 100%;
       max-width: 445px;
+
+      @include for-width(-mobile-l) {
+        max-width: 100%;
+      }
     }
 
     li {
-      display: grid;
-      grid-template-columns: 445px 475px;
+      @include flex-s-sb;
+
       overflow: hidden;
       border-radius: var(--radius-main);
       background-color: rgba(235, 235, 235, 0.3);
 
       &:not(:last-child) {
-        margin-bottom: 40px;
+        margin-bottom: 37px;
+      }
+
+      @include for-width(-mobile-l) {
+        display: block;
       }
     }
 
     div {
+      width: 100%;
+      max-width: 445px;
+
       &:not(:first-child) {
-        padding: 55px 20px 55px 30px;
+        padding: 55px 16px 55px 0;
+
+        @include for-width(-mobile-l) {
+          padding: 30px 10px;
+        }
+      }
+
+      img {
+        height: 100%;
+        object-position: right;
       }
 
       h3 {
         counter-increment: list;
         position: relative;
         margin-bottom: 45px;
-        padding-right: 40px;
+        padding-right: 66px;
         padding-left: 95px;
 
         &::before {
@@ -58,12 +78,20 @@
       }
 
       p {
-        margin-bottom: 20px;
+        margin-bottom: 18px;
 
         &:last-of-type {
           margin-bottom: 45px;
         }
       }
+
+      @include for-width(-mobile-l) {
+        max-width: 100%;
+      }
+    }
+
+    @include for-width(-mobile-l) {
+      max-width: 560px;
     }
   }
 }

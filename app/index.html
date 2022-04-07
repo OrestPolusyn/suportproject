@@ -28,7 +28,7 @@
         <span class="burger-line"></span>
       </button>
 
-      <ul>
+      <ul data-menu>
         <li>
           <a href="#">
             о нас
@@ -52,33 +52,34 @@
             контакты
           </a>
         </li>
+
+        <li class="lang">
+
+          <span>
+            рус
+          </span>
+
+          <ul>
+            <li>
+              <a href="#">
+                рус
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                укр
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                eng
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
-
-      <div class="lang">
-        <span>
-          рус
-        </span>
-
-        <ul>
-          <li>
-            <a href="#">
-              рус
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              укр
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              eng
-            </a>
-          </li>
-        </ul>
-      </div>
 
       <a class="header__phone phone" href="tel:+380632325253">
         +38 063 23 25 253
@@ -109,19 +110,16 @@
 
       <div class="container">
         <div class="together space">
-  <h2>
-    Вместе мы сила!
-  </h2>
 
   <div class="together__img">
-    <picture>
-      <source srcset="img/hands.avif" type="image/avif">
-      <source srcset="img/hands.webp" type="image/webp">
-      <img class="image" loading="lazy" src="img/hands.jpg" width="540" height="313" alt="Вместе мы сила!">
-    </picture>
+    <img class="image" loading="lazy" src="img/hands.jpg" width="540" height="313" alt="Вместе мы сила!">
   </div>
 
   <div class="together__content">
+
+    <h2>
+      Вместе мы сила!
+    </h2>
 
     <p>
       Миллионы мирных жителей Украины страдают из-за войны с Россией. Большая часть осталась без крова и вынуждена покидать родные места, матери, спасая своих детей, оставляют мужей одних и едут в страны ЕС в полную неизвестность. Для каждого украинца сейчас важна любая помощь будь то еда, вода, трансфер или информация от проверенного источника о безопасном местопребывании.
@@ -151,7 +149,7 @@
     </h2>
 
     <ul class="help__list">
-      <li class="help__item">
+      <li class="help__item help__item--volunteering">
         <h3>
           Волонтерство
         </h3>
@@ -161,7 +159,7 @@
         </p>
       </li>
 
-      <li class="help__item">
+      <li class="help__item help__item--cash">
         <h3>
           Материальный взнос
         </h3>
@@ -171,7 +169,7 @@
         </p>
       </li>
 
-      <li class="help__item">
+      <li class="help__item help__item--resources">
         <h3>
           Товаро-материальная помощь
         </h3>
@@ -181,7 +179,7 @@
         </p>
       </li>
 
-      <li class="help__item">
+      <li class="help__item help__item--bitcoin">
         <h3>
           Криптоактивы
         </h3>
@@ -208,16 +206,31 @@
       Вот что получилось собрать на данный момент.
     </p>
 
-    <div class="numbers__wallets">
+    <ul class="numbers__wallets">
+      <li class="numbers__wallet">
+        <img class="numbers__img" src="img/number-dollar.svg" alt="Dollar wallet" width="270" height="270">
 
-      <a href="#" class="btn">
-        Оформить перевод
-      </a>
+        <span class="numbers__text">
+          Собрано в $
+        </span>
 
-      <a href="#" class="btn">
-        Оформить перевод
-      </a>
-    </div>
+        <a href="#" class="btn">
+          Оформить перевод
+        </a>
+      </li>
+
+      <li class="numbers__wallet">
+        <img class="numbers__img" src="img/number-bitcoin.svg" alt="Bitcoin wallet" width="270" height="270">
+
+        <span class="numbers__text">
+          Собрано в криптовалюте
+        </span>
+
+        <a href="#" class="btn">
+          Оформить перевод
+        </a>
+      </li>
+    </ul>
   </div>
 </div>
 

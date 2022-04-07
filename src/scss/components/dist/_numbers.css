@@ -1,0 +1,6 @@
+.numbers h2 {
+  text-align: center;
+}
+.numbers p:not(:last-of-type) {
+  margin-bottom: 10px;
+}

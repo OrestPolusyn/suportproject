@@ -1,0 +1,63 @@
+.numbers {
+  &__wallets {
+    @include flex;
+
+    justify-content: space-evenly;
+
+    @include for-width(-mobile-md) {
+      display: block;
+    }
+  }
+
+  &__wallet {
+    position: relative;
+    width: 100%;
+    max-width: 270px;
+
+    .btn {
+      margin: 0 auto;
+    }
+
+    &:first-child {
+      .numbers__text {
+        transform: translate(-50%, 9px);
+      }
+
+      @include for-width(-mobile-md) {
+        margin-bottom: 50px;
+      }
+    }
+
+    @include for-width(-mobile-md) {
+      margin: 0 auto;
+    }
+  }
+
+  &__img {
+    margin-bottom: 45px;
+  }
+
+  &__text {
+    position: absolute;
+    left: 50%;
+    top: 32%;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--color-blue);
+    transform: translate(-50%);
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  p {
+    &:not(:last-of-type) {
+      margin-bottom: 18px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 50px;
+    }
+  }
+}

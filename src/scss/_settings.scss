@@ -66,6 +66,7 @@
 
 .burger {
   @include burger;
+  z-index: 10;
 
   display: none;
 
@@ -77,4 +78,24 @@
 
 .space {
   margin-bottom: 100px;
+}
+
+.phone {
+  position: relative;
+  z-index: 2;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 26px;
+    height: 26px;
+    background-image: url("../img/icon/phone.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translate(-100%, -6px);
+  }
 }
